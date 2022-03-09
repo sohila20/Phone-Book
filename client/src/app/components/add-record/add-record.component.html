@@ -1,0 +1,31 @@
+<div class="row mt-5">
+    <div class="col-md-6 mx-auto">
+        <h2 class="text-center">Add Phone Number details</h2>
+        <div class="card mt-3">
+            <div class="card-body">
+                <form [formGroup]="recordForm" (ngSubmit)="addRecord()">
+                    <div class="form-group">
+                        <label class="col-md-4">Name</label>
+                        <input id="name" name="name" type="text" class="form-control" formControlName="name" minlength="3" required/>
+                        <span class="text-danger" *ngIf="(recordFormControl.name.touched) && recordFormControl.name.errors?.required">
+                                Name is required
+                        </span>
+                        <span class="text-danger" *ngIf="(recordFormControl.name.errors?.minlength)">
+                            Name must be at least 3 charcaters
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4">Phone Number </label>
+                        <input type="text" class="form-control" formControlName="number" required/>
+                        <span class="text-danger" *ngIf="(recordFormControl.number.touched) && recordFormControl.number.errors?.required">
+                            Phone number is required
+                    </span>
+                    </div>
+                    <div class="form-group text-center mt-3">
+                        <button type="submit" class="btn btn-primary col-md-4" [disabled]="recordForm.invalid">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

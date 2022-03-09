@@ -1,0 +1,41 @@
+<div class="bg-primary p-5 mb-5">
+    <h1 class="text-white text-center">phoneBook</h1>
+    <div class="form-group p-5 mx-5 text-center">
+        <input class="mb-3 form-control rounded " type="search" placeholder="What are you looking for?" [(ngModel)]="search" />
+    </div>
+</div>
+
+<div class="container text-center">
+    <div class="row  justify-content-center">
+        <div class="col-auto">
+            <div *ngIf="records.length<1 else results">no results</div>
+            <ng-template #results>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of records | filter:search  ; let i = index">
+                            <td class="px-5">{{record.name}}</td>
+                            <td class="px-5">{{record.phoneNumber}}</td>
+                            <td class="px-5">
+                                <button type="button" class="btn btn-danger mx-2" (click)="deleteRecord(record.id, i)">Delete</button>
+                                <a [routerLink]="['/record/edit', record.id]">
+                                    <button type="button" class="btn btn-primary">Edit</button>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-template>
+
+            <a [routerLink]="['/record/add']">
+                <button type="button" class="btn btn-primary m-3 py-2 px-5">Add Contact</button>
+            </a>
+        </div>
+    </div>
+</div>
