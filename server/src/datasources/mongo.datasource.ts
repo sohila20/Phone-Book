@@ -7,7 +7,7 @@ var envs = require('../../env.js');
 const config = {
   name: 'mongo',
   connector: 'mongodb',
-  url: envs.db_url,
+  url: process.env.MONGODB_URI,
   host: '',
   port: 0,
   user: env.db_user,
