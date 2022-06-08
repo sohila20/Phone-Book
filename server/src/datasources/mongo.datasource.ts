@@ -1,14 +1,17 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
+import { env } from 'process';
 
+
+var envs = require('../../env.js');
 const config = {
   name: 'mongo',
   connector: 'mongodb',
-  url: 'mongodb://localhost:27017/phone-book',
+  url: envs.db_url,
   host: '',
   port: 0,
-  user: '',
-  password: '',
+  user: env.db_user,
+  password: env.db_pw,
   database: '',
   useNewUrlParser: true
 };
