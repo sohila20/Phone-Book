@@ -3,7 +3,7 @@ import {juggler} from '@loopback/repository';
 import { env } from 'process';
 
 
-var envs = require('../../env.js');
+// var envs = require('../../env.js');
 const config = {
   name: 'mongo',
   connector: 'mongodb',
