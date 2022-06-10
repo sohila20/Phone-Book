@@ -22,8 +22,8 @@ export class PhoneBookApplication extends BootMixin(
     this.sequence(MySequence);
 
     // Set up default home page
-    this.static('/', path.join(__dirname, '../public'));
-
+    // this.static('/', path.join(__dirname, '../public'));
+    this.redirect('/', '../client');
     // Customize @loopback/rest-explorer configuration here
     this.configure(RestExplorerBindings.COMPONENT).to({
       path: '/explorer',
