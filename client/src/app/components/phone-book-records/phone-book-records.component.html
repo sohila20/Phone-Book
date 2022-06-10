@@ -6,7 +6,10 @@
 </div>
 
 <div class="container text-center">
-    <div class="row  justify-content-center">
+    <div *ngIf="IsWait" class="spinner-border text-primary" role="status">
+        <span class="sr-only"></span>
+    </div>
+    <div *ngIf="filtersLoaded | async" class="row justify-content-center">
         <div class="col-auto">
             <div *ngIf="records.length<1 else results">no results</div>
             <ng-template #results>

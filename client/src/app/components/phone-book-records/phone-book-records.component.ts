@@ -11,6 +11,8 @@ export class PhoneBookRecordsComponent implements OnInit {
 
   records:any= [];
   search:string;
+  filtersLoaded: Promise<boolean>;
+  IsWait:boolean=true;
   constructor(private dataService: DatabaseService,  private router: Router) {
   
    }
@@ -19,6 +21,8 @@ export class PhoneBookRecordsComponent implements OnInit {
     this.dataService.getRecords().subscribe((data)=>{
       console.log(data);
       this.records = data;
+      this.filtersLoaded = Promise.resolve(true);
+      this.IsWait=false;
     })
   }
 

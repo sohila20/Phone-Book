@@ -7,7 +7,7 @@ import { PhoneBookRecord } from './../../../../server/src/models/phone-book-reco
 })
 export class DatabaseService {
 
-  private url:string = "http://localhost:3000/records"
+  private url:string = "https://phone-book-loopback4.herokuapp.com/records"
   constructor(private http: HttpClient) { }
   getRecords(){
     return this.http.get(this.url);
